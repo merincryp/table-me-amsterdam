@@ -1,0 +1,26 @@
+<h2>Welke kaart voor de kaartweergave?</h2>
+<p class="subtitle">Je wilt restaurants op een Amsterdam-kaart tonen. Welke provider?</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Google Maps</h3>
+      <p>De standaard. Iedereen kent het, rijke data, Street View. <strong>Pro:</strong> betrouwbaar, goede Amsterdam dekking, past bij Google Places data. <strong>Con:</strong> kost geld na gratis tier ($200/maand credit), Google-look past niet altijd bij premium design.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Mapbox</h3>
+      <p>Stijlvolle, volledig customizable kaarten. <strong>Pro:</strong> past perfect bij premium design (custom kleuren, fonts), gratis tot 50k loads/maand, mooier dan Google Maps. <strong>Con:</strong> minder bekend, iets meer setup.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Leaflet + OpenStreetMap</h3>
+      <p>Open source, volledig gratis, geen API key nodig. <strong>Pro:</strong> zero cost, geen vendor lock-in, prima voor Amsterdam. <strong>Con:</strong> minder polish out-of-the-box, custom styling is lastiger.</p>
+    </div>
+  </div>
+</div>

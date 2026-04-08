@@ -1,0 +1,26 @@
+<h2>Hoe gaan we om met restaurant foto's?</h2>
+<p class="subtitle">Nu staan foto's als base64 inline in de HTML — dat is 1.2MB voor 10 restaurants. Bij 200+ restaurants is dat onhoudbaar.</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Google Places API foto's</h3>
+      <p>Automatisch foto's ophalen via Google Places. Altijd up-to-date, geen handmatig werk. <strong>Pro:</strong> automatisch, hoge kwaliteit, schaalbaar. <strong>Con:</strong> kost geld bij veel requests, afhankelijk van Google, niet altijd de mooiste foto.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Zelf uploaden naar Supabase Storage</h3>
+      <p>Handmatig mooie foto's uitkiezen en uploaden. Volledige controle over de uitstraling. <strong>Pro:</strong> curated look, gratis opslag in Supabase. <strong>Con:</strong> handmatig werk per restaurant, schaalt niet goed naar honderden.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Google Places als default + handmatige override</h3>
+      <p>Gebruik automatisch Google Places foto's, maar sta toe om per restaurant een eigen foto te uploaden die voorrang krijgt. <strong>Pro:</strong> schaalt automatisch, maar curated waar nodig. <strong>Con:</strong> twee systemen, iets meer logica.</p>
+    </div>
+  </div>
+</div>

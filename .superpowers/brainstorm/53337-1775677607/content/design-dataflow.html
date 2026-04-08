@@ -1,0 +1,113 @@
+<h2>Design — Sectie 5: Data Flows</h2>
+<p class="subtitle">Hoe data door het systeem stroomt — de drie belangrijkste flows</p>
+
+<div class="section">
+  <div class="mockup">
+    <div class="mockup-header">Flow 1: Gebruiker zoekt beschikbaarheid</div>
+    <div class="mockup-body" style="padding:24px;font-size:13px;line-height:1.8;">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;">
+        <div style="border:2px solid #1C1916;padding:10px 14px;text-align:center;font-size:12px;background:#FAF8F3;">
+          <strong>Gebruiker</strong><br>kiest datum + personen
+        </div>
+        <div style="font-size:18px;color:#8C8378;">→</div>
+        <div style="border:2px solid #8C8378;padding:10px 14px;text-align:center;font-size:12px;background:#FAF8F3;">
+          <strong>Next.js frontend</strong><br>fetch /api/restaurants
+        </div>
+        <div style="font-size:18px;color:#8C8378;">→</div>
+        <div style="border:2px solid #5A7A5C;padding:10px 14px;text-align:center;font-size:12px;background:#FAF8F3;">
+          <strong>API route</strong><br>query Supabase + filters
+        </div>
+        <div style="font-size:18px;color:#8C8378;">→</div>
+        <div style="border:2px solid #5A7A5C;padding:10px 14px;text-align:center;font-size:12px;background:#FAF8F3;">
+          <strong>Per restaurant</strong><br>fetch Formitable slots
+        </div>
+        <div style="font-size:18px;color:#8C8378;">→</div>
+        <div style="border:2px solid #1C1916;padding:10px 14px;text-align:center;font-size:12px;background:#FAF8F3;">
+          <strong>Response</strong><br>restaurants + beschikbaarheid
+        </div>
+      </div>
+      <div style="margin-top:16px;padding:10px;background:#F2EDE3;font-size:12px;color:#6E6860;">
+        <strong>Caching:</strong> Formitable beschikbaarheid wordt 5 minuten gecached in Vercel KV. Voorkomt dat we Formitable overbelasten en maakt herhaalde zoekopdrachten instant.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="mockup">
+    <div class="mockup-header">Flow 2: Restaurant import (eenmalig/periodiek)</div>
+    <div class="mockup-body" style="padding:24px;font-size:13px;line-height:1.8;">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;">
+        <div style="border:2px solid #1C1916;padding:10px 14px;text-align:center;font-size:12px;background:#FAF8F3;">
+          <strong>Admin trigger</strong><br>/api/import
+        </div>
+        <div style="font-size:18px;color:#8C8378;">→</div>
+        <div style="border:1px dashed #B8B3A8;padding:10px 14px;text-align:center;font-size:12px;">
+          <strong>Google Places</strong><br>"restaurants in Amsterdam"
+        </div>
+        <div style="font-size:18px;color:#8C8378;">→</div>
+        <div style="border:2px solid #8C8378;padding:10px 14px;text-align:center;font-size:12px;background:#FAF8F3;">
+          <strong>Verwerk resultaten</strong><br>naam, adres, foto, rating
+        </div>
+        <div style="font-size:18px;color:#8C8378;">→</div>
+        <div style="border:2px solid #8C8378;padding:10px 14px;text-align:center;font-size:12px;background:#FAF8F3;">
+          <strong>Match Formitable</strong><br>check widget beschikbaar?
+        </div>
+        <div style="font-size:18px;color:#8C8378;">→</div>
+        <div style="border:2px solid #5A7A5C;padding:10px 14px;text-align:center;font-size:12px;background:#FAF8F3;">
+          <strong>Supabase</strong><br>upsert restaurants
+        </div>
+      </div>
+      <div style="margin-top:16px;padding:10px;background:#F2EDE3;font-size:12px;color:#6E6860;">
+        <strong>Frequentie:</strong> Eerste keer bulk import, daarna wekelijks/maandelijks om nieuwe restaurants te ontdekken. Bestaande data wordt niet overschreven (upsert op google_place_id).
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="mockup">
+    <div class="mockup-header">Flow 3: Reservering maken</div>
+    <div class="mockup-body" style="padding:24px;font-size:13px;line-height:1.8;">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;">
+        <div style="border:2px solid #1C1916;padding:10px 14px;text-align:center;font-size:12px;background:#FAF8F3;">
+          <strong>Gebruiker klikt</strong><br>tijdslot of restaurant
+        </div>
+        <div style="font-size:18px;color:#8C8378;">→</div>
+        <div style="border:2px solid #8C8378;padding:10px 14px;text-align:center;font-size:12px;background:#FAF8F3;">
+          <strong>BookingModal</strong><br>opent op basis van type
+        </div>
+        <div style="font-size:18px;color:#8C8378;">→</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="border:2px solid #5A7A5C;padding:8px 14px;text-align:center;font-size:11px;background:#FAF8F3;">
+            <strong>formitable:</strong> embedded widget iframe
+          </div>
+          <div style="border:2px solid #8C8378;padding:8px 14px;text-align:center;font-size:11px;background:#FAF8F3;">
+            <strong>link:</strong> open externe reserveer-URL
+          </div>
+          <div style="border:2px solid #B8B3A8;padding:8px 14px;text-align:center;font-size:11px;background:#FAF8F3;">
+            <strong>manual:</strong> bel/mail opties tonen
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;padding:10px;background:#F2EDE3;font-size:12px;color:#6E6860;">
+        <strong>Belangrijk:</strong> Wij verwerken geen reserveringen zelf. We linken door naar Formitable, de restaurant-website, of tonen contactgegevens. Zero liability.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options" style="margin-top:24px;">
+  <div class="option" data-choice="approved" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content">
+      <h3>Data flows kloppen — design is compleet</h3>
+    </div>
+  </div>
+  <div class="option" data-choice="changes" onclick="toggleSelect(this)">
+    <div class="letter">✎</div>
+    <div class="content">
+      <h3>Wil iets aanpassen</h3>
+    </div>
+  </div>
+</div>

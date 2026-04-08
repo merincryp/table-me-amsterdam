@@ -1,0 +1,41 @@
+<h2>Drie aanpakken om dit te bouwen</h2>
+<p class="subtitle">Zelfde eindresultaat, verschillende snelheid vs. stabiliteit trade-offs</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Big Bang — Alles tegelijk bouwen</h3>
+      <p>Bouw het complete platform in één keer: Next.js setup, Supabase, Google Places import, Formitable integratie, kaart, filters, favorieten, curated picks. Alles in één push live.</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>Pro</h4><ul><li>Alles werkt samen vanaf dag 1</li><li>Geen halve producten live</li></ul></div>
+        <div class="cons"><h4>Con</h4><ul><li>Weken bouwen zonder feedback</li><li>Groot risico als iets niet werkt</li><li>Moeilijk te debuggen</li></ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>⭐ Iteratief in 4 fases (aanbevolen)</h3>
+      <p><strong>Fase 1:</strong> Next.js + Supabase + huidige 10 restaurants met echte Formitable beschikbaarheid<br>
+      <strong>Fase 2:</strong> Google Places bulk import + foto's + filters<br>
+      <strong>Fase 3:</strong> Kaartweergave (Mapbox) + "vanavond beschikbaar" + favorieten<br>
+      <strong>Fase 4:</strong> Curated picks, design polish, animaties, mobile optimalisatie</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>Pro</h4><ul><li>Na elke fase een werkend product</li><li>Snel feedback, snel itereren</li><li>Bugs vroeg vinden</li></ul></div>
+        <div class="cons"><h4>Con</h4><ul><li>Eerste versie is "basic"</li><li>Refactoring mogelijk tussen fases</li></ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Design-first — pixel-perfect dan bouwen</h3>
+      <p>Eerst het volledige design uitwerken in Figma/browser. Elke pagina, elke state, elke animatie. Dan pas bouwen met het design als blauwdruk.</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>Pro</h4><ul><li>Consistent design van begin tot eind</li><li>Geen design-twijfels tijdens bouwen</li></ul></div>
+        <div class="cons"><h4>Con</h4><ul><li>Lang wachten op werkend product</li><li>Design kan veranderen na testen met echte data</li><li>Merlijne's schets is al een goed startpunt</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<h2>Waar slaan we restaurant-data op?</h2>
+<p class="subtitle">Nu staan 10 restaurants hardcoded in index.html. Bij honderden restaurants heb je een echte databron nodig.</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>JSON bestand in de repo</h3>
+      <p>Een <code>restaurants.json</code> met alle data. Makkelijk te bewerken, geen database nodig. Nieuwe restaurants = PR maken. <strong>Pro:</strong> zero cost, simpel, versie-beheer via git. <strong>Con:</strong> handmatig bijwerken, geen admin panel, geen dynamische updates.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Supabase (Postgres)</h3>
+      <p>Gratis hosted database. Restaurant tabel met alle info. Later makkelijk uit te breiden met users, reviews, favorieten. <strong>Pro:</strong> schaalbaar, admin mogelijk, real-time updates. <strong>Con:</strong> extra dependency, setup nodig.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Start JSON, migreer later naar Supabase</h3>
+      <p>Begin met een JSON file zodat je snel live bent. Zodra je een admin panel of user features wilt, migreer naar Supabase. <strong>Pro:</strong> snel starten, geen vendor lock-in. <strong>Con:</strong> migratie-moment later.</p>
+    </div>
+  </div>
+</div>

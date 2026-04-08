@@ -1,0 +1,98 @@
+<h2>Design — Sectie 4: De 4 Fases</h2>
+<p class="subtitle">Elke fase levert een werkend product op dat je kunt deployen en testen</p>
+
+<div class="section">
+  <div class="mockup">
+    <div class="mockup-header" style="background:#5A7A5C;color:white;">Fase 1 — Fundament (eerste deploy)</div>
+    <div class="mockup-body" style="padding:20px;font-size:14px;line-height:1.8;">
+      <ul style="list-style:none;padding:0;">
+        <li>✅ Next.js 14 project opzetten met Tailwind CSS</li>
+        <li>✅ Merlijne's design tokens migreren (kleuren, fonts, spacing)</li>
+        <li>✅ Supabase opzetten + restaurant tabel + seed met huidige 10 restaurants</li>
+        <li>✅ SearchBar component (datum + personen)</li>
+        <li>✅ RestaurantCard + RestaurantList componenten</li>
+        <li>✅ Echte Formitable beschikbaarheid ophalen via API route</li>
+        <li>✅ BookingModal met Formitable widget embed</li>
+        <li>✅ Responsive design (mobile-first)</li>
+        <li>✅ Deploy naar Vercel</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:#F2EDE3;font-size:13px;color:#6E6860;">
+        <strong>Resultaat:</strong> Werkende site met 10 restaurants en echte beschikbaarheid. Zelfde functionaliteit als Merlijne's schets, maar dan echt.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="mockup">
+    <div class="mockup-header" style="background:#8C8378;color:white;">Fase 2 — Data & Filters</div>
+    <div class="mockup-body" style="padding:20px;font-size:14px;line-height:1.8;">
+      <ul style="list-style:none;padding:0;">
+        <li>🔧 Google Places API integratie (bulk import Amsterdam restaurants)</li>
+        <li>🔧 Automatische Formitable widget-ID matching</li>
+        <li>🔧 Google Places foto's als default + upload override systeem</li>
+        <li>🔧 FilterBar component (buurt, keuken, prijsklasse)</li>
+        <li>🔧 Neighborhood + cuisine lookup tabellen vullen</li>
+        <li>🔧 Zoekresultaten filteren server-side</li>
+        <li>🔧 Restaurant detailpagina (/[slug])</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:#F2EDE3;font-size:13px;color:#6E6860;">
+        <strong>Resultaat:</strong> Honderden restaurants met foto's en filters. Van prototype naar echt platform.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="mockup">
+    <div class="mockup-header" style="background:#6B8C6E;color:white;">Fase 3 — Kaart & Quick Actions</div>
+    <div class="mockup-body" style="padding:20px;font-size:14px;line-height:1.8;">
+      <ul style="list-style:none;padding:0;">
+        <li>🗺 Mapbox kaartweergave (/kaart)</li>
+        <li>🗺 Restaurant pins met kleur-codering (beschikbaar/vol)</li>
+        <li>🗺 Popup met restaurant info + direct reserveren</li>
+        <li>⚡ "Vanavond beschikbaar" quick-button</li>
+        <li>♡ Favorieten systeem (localStorage)</li>
+        <li>♡ "Mijn favorieten" filter optie</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:#F2EDE3;font-size:13px;color:#6E6860;">
+        <strong>Resultaat:</strong> Twee manieren om te browsen (lijst + kaart), snelle acties, persoonlijke touch.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="mockup">
+    <div class="mockup-header" style="background:#1C1916;color:white;">Fase 4 — Polish & Curated</div>
+    <div class="mockup-body" style="padding:20px;font-size:14px;line-height:1.8;">
+      <ul style="list-style:none;padding:0;">
+        <li>⭐ "Table me picks" curated badge + sectie</li>
+        <li>⭐ Curated collections ("Beste terrassen", "Date night")</li>
+        <li>✨ Design modernisering (animaties, glasmorfisme, transitions)</li>
+        <li>✨ Loading skeletons en micro-interacties</li>
+        <li>📱 Mobile optimalisatie (touch targets, swipe, PWA)</li>
+        <li>🔍 SEO optimalisatie (meta tags, structured data, sitemap)</li>
+        <li>⚡ Performance (caching, ISR, image optimization)</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:#F2EDE3;font-size:13px;color:#6E6860;">
+        <strong>Resultaat:</strong> Premium, gepolijst platform klaar om te delen en te groeien.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options" style="margin-top:24px;">
+  <div class="option" data-choice="approved" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content">
+      <h3>Fases kloppen, door naar de laatste sectie</h3>
+    </div>
+  </div>
+  <div class="option" data-choice="changes" onclick="toggleSelect(this)">
+    <div class="letter">✎</div>
+    <div class="content">
+      <h3>Wil iets verschuiven tussen fases</h3>
+    </div>
+  </div>
+</div>

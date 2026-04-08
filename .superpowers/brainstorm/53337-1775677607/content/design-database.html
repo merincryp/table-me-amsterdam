@@ -1,0 +1,95 @@
+<h2>Design — Sectie 2: Database Schema</h2>
+<p class="subtitle">Supabase Postgres — de kern van alle restaurant data</p>
+
+<div class="mockup">
+  <div class="mockup-header">Database Tabellen</div>
+  <div class="mockup-body" style="padding:24px;font-family:'Courier New',monospace;font-size:13px;line-height:1.7;">
+    <div style="margin-bottom:24px;">
+      <div style="font-weight:700;font-family:system-ui;font-size:15px;margin-bottom:8px;">🗂 restaurants</div>
+      <div style="background:#1C1916;color:#FAF8F3;padding:16px;border-radius:4px;overflow-x:auto;">
+        id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uuid (PK)<br>
+        name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text NOT NULL<br>
+        slug &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text UNIQUE<br>
+        neighborhood &nbsp;&nbsp;&nbsp; text (Jordaan, De Pijp, ...)<br>
+        cuisine &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text (Frans, Japans, ...)<br>
+        price_range &nbsp;&nbsp;&nbsp;&nbsp; int (1=€, 2=€€, 3=€€€)<br>
+        address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text<br>
+        lat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float8<br>
+        lng &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float8<br>
+        phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text<br>
+        email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text<br>
+        website &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text<br>
+        google_place_id &nbsp;text<br>
+        google_rating &nbsp;&nbsp; float4<br>
+        photo_url &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text (Google Places default)<br>
+        photo_override &nbsp; text (Supabase Storage URL)<br>
+        booking_type &nbsp;&nbsp;&nbsp; enum (formitable, link, manual)<br>
+        formitable_id &nbsp;&nbsp; text (widget UID)<br>
+        booking_url &nbsp;&nbsp;&nbsp;&nbsp; text (fallback externe link)<br>
+        is_curated &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; boolean DEFAULT false<br>
+        curated_note &nbsp;&nbsp;&nbsp; text ("Beste pasta in de Pijp")<br>
+        is_active &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; boolean DEFAULT true<br>
+        created_at &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; timestamptz<br>
+        updated_at &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; timestamptz
+      </div>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <div style="font-weight:700;font-family:system-ui;font-size:15px;margin-bottom:8px;">🏷 cuisines (lookup)</div>
+      <div style="background:#1C1916;color:#FAF8F3;padding:16px;border-radius:4px;">
+        id &nbsp;&nbsp;&nbsp;&nbsp; uuid (PK)<br>
+        name &nbsp;&nbsp; text UNIQUE (Frans, Japans, ...)<br>
+        slug &nbsp;&nbsp; text UNIQUE
+      </div>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <div style="font-weight:700;font-family:system-ui;font-size:15px;margin-bottom:8px;">📍 neighborhoods (lookup)</div>
+      <div style="background:#1C1916;color:#FAF8F3;padding:16px;border-radius:4px;">
+        id &nbsp;&nbsp;&nbsp;&nbsp; uuid (PK)<br>
+        name &nbsp;&nbsp; text UNIQUE (Jordaan, De Pijp, ...)<br>
+        slug &nbsp;&nbsp; text UNIQUE<br>
+        lat &nbsp;&nbsp;&nbsp; float8 (center point)<br>
+        lng &nbsp;&nbsp;&nbsp; float8
+      </div>
+    </div>
+
+    <div>
+      <div style="font-weight:700;font-family:system-ui;font-size:15px;margin-bottom:8px;">⭐ curated_collections (later)</div>
+      <div style="background:#1C1916;color:#FAF8F3;padding:16px;border-radius:4px;opacity:0.6;">
+        id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uuid (PK)<br>
+        title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text ("Beste date spots")<br>
+        description &nbsp;&nbsp;&nbsp; text<br>
+        restaurant_ids &nbsp;uuid[] (array)<br>
+        is_featured &nbsp;&nbsp;&nbsp; boolean
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px;">
+  <h3>Toelichting</h3>
+  <ul style="font-size:14px;line-height:1.8;color:#6E6860;">
+    <li><strong>restaurants</strong> — kern tabel, elke restaurant één rij</li>
+    <li><strong>photo_url vs photo_override</strong> — Google Places foto als default, eigen upload wint</li>
+    <li><strong>booking_type</strong> — bepaalt hoe de booking modal werkt (widget/link/bel)</li>
+    <li><strong>is_curated + curated_note</strong> — de "Table me picks" laag</li>
+    <li><strong>curated_collections</strong> — later: thematische lijsten ("Beste terrassen", "Date night")</li>
+    <li><strong>Lookup tabellen</strong> — voor consistente filters, later uitbreidbaar</li>
+  </ul>
+</div>
+
+<div class="options" style="margin-top:20px;">
+  <div class="option" data-choice="approved" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content">
+      <h3>Schema ziet er goed uit</h3>
+    </div>
+  </div>
+  <div class="option" data-choice="changes" onclick="toggleSelect(this)">
+    <div class="letter">✎</div>
+    <div class="content">
+      <h3>Wil iets aanpassen</h3>
+    </div>
+  </div>
+</div>

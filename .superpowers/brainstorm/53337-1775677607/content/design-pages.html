@@ -1,0 +1,115 @@
+<h2>Design — Sectie 3: Pagina's & Componenten</h2>
+<p class="subtitle">Next.js App Router structuur — welke pagina's en componenten</p>
+
+<div class="mockup">
+  <div class="mockup-header">Route Structuur</div>
+  <div class="mockup-body" style="padding:24px;font-family:'Courier New',monospace;font-size:13px;line-height:1.8;">
+    <div style="background:#1C1916;color:#FAF8F3;padding:20px;border-radius:4px;overflow-x:auto;">
+      app/<br>
+      ├── layout.tsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Fonts, metadata, header/footer</span><br>
+      ├── page.tsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Homepage: zoek + resultaten</span><br>
+      ├── kaart/page.tsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Mapbox kaartweergave</span><br>
+      ├── [slug]/page.tsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Restaurant detail (SEO)</span><br>
+      │<br>
+      ├── api/<br>
+      │&nbsp;&nbsp; ├── availability/route.ts <span style="color:#8C8378;">// Formitable beschikbaarheid proxy</span><br>
+      │&nbsp;&nbsp; ├── restaurants/route.ts &nbsp;<span style="color:#8C8378;">// Restaurant lijst + filters</span><br>
+      │&nbsp;&nbsp; └── import/route.ts &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Google Places import (admin)</span><br>
+      │<br>
+      components/<br>
+      ├── SearchBar.tsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Datum + personen + filters</span><br>
+      ├── RestaurantCard.tsx &nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Restaurant kaart met slots</span><br>
+      ├── RestaurantList.tsx &nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Lijst van kaarten</span><br>
+      ├── BookingModal.tsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Formitable widget / link / bel</span><br>
+      ├── MapView.tsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Mapbox kaart met pins</span><br>
+      ├── FilterBar.tsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Buurt, keuken, prijs filters</span><br>
+      ├── CuratedBadge.tsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// "Table me pick" badge</span><br>
+      ├── TonightButton.tsx &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// "Vanavond vrij" quick action</span><br>
+      ├── FavoriteButton.tsx &nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Hart-icoon, localStorage</span><br>
+      ├── SlotButton.tsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Individueel tijdslot</span><br>
+      ├── Header.tsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Logo + navigatie</span><br>
+      └── Footer.tsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8C8378;">// Credits + links</span>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:28px;">
+  <h3>Pagina's in detail</h3>
+</div>
+
+<div class="split" style="gap:16px;">
+  <div class="mockup" style="flex:1;">
+    <div class="mockup-header">/ — Homepage</div>
+    <div class="mockup-body" style="padding:16px;font-size:13px;">
+      <div class="mock-nav" style="font-size:12px;">Table me, Amsterdam &nbsp;|&nbsp; Lijst &nbsp;|&nbsp; Kaart</div>
+      <div style="padding:16px 0;border-bottom:1px solid #DDD8CE;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:end;">
+          <div><span class="label">Datum</span><br><input class="mock-input" value="8 apr 2026" style="width:110px;font-size:12px;"></div>
+          <div><span class="label">Personen</span><br><input class="mock-input" value="2" style="width:60px;font-size:12px;"></div>
+          <button class="mock-button" style="font-size:11px;">Vanavond vrij</button>
+          <button class="mock-button" style="font-size:11px;background:#1C1916;color:#FAF8F3;">Zoek</button>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:8px;">
+          <span style="font-size:11px;border:1px solid #DDD8CE;padding:3px 8px;border-radius:2px;">Jordaan</span>
+          <span style="font-size:11px;border:1px solid #DDD8CE;padding:3px 8px;border-radius:2px;">Italiaans</span>
+          <span style="font-size:11px;border:1px solid #DDD8CE;padding:3px 8px;border-radius:2px;">€€</span>
+        </div>
+      </div>
+      <div style="padding:12px 0;border-bottom:1px solid #eee;display:flex;gap:12px;">
+        <div class="placeholder" style="width:80px;height:70px;font-size:10px;">foto</div>
+        <div style="flex:1;">
+          <div style="font-weight:600;font-size:13px;">Restaurant Franzen <span style="font-size:10px;color:#5A7A5C;">⭐ Pick</span></div>
+          <div style="font-size:11px;color:#6E6860;">Centrum · Fine dining · €€€</div>
+          <div style="margin-top:6px;display:flex;gap:4px;">
+            <span style="font-size:11px;border:1px solid #DDD8CE;padding:2px 8px;">18:30</span>
+            <span style="font-size:11px;border:1px solid #DDD8CE;padding:2px 8px;">19:00</span>
+            <span style="font-size:11px;border:1px solid #8C8378;padding:2px 8px;color:#8C8378;">20:30</span>
+          </div>
+        </div>
+        <div style="font-size:16px;color:#ccc;cursor:pointer;">♡</div>
+      </div>
+      <div style="padding:12px 0;display:flex;gap:12px;">
+        <div class="placeholder" style="width:80px;height:70px;font-size:10px;">foto</div>
+        <div style="flex:1;">
+          <div style="font-weight:600;font-size:13px;">Café de Klepel</div>
+          <div style="font-size:11px;color:#6E6860;">Jordaan · Nederlands · €</div>
+          <div style="margin-top:6px;font-size:11px;color:#A06060;font-style:italic;">Volzet</div>
+        </div>
+        <div style="font-size:16px;color:#ccc;cursor:pointer;">♡</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup" style="flex:1;">
+    <div class="mockup-header">/kaart — Kaartweergave</div>
+    <div class="mockup-body" style="padding:16px;font-size:13px;">
+      <div class="mock-nav" style="font-size:12px;">Table me, Amsterdam &nbsp;|&nbsp; Lijst &nbsp;|&nbsp; <strong>Kaart</strong></div>
+      <div style="background:#E8E4DC;height:200px;display:flex;align-items:center;justify-content:center;position:relative;margin-top:12px;">
+        <span style="color:#6E6860;font-size:12px;">Mapbox kaart van Amsterdam</span>
+        <div style="position:absolute;top:30%;left:40%;width:10px;height:10px;background:#5A7A5C;border-radius:50;border:2px solid white;"></div>
+        <div style="position:absolute;top:50%;left:55%;width:10px;height:10px;background:#5A7A5C;border-radius:50%;border:2px solid white;"></div>
+        <div style="position:absolute;top:35%;left:65%;width:10px;height:10px;background:#A06060;border-radius:50%;border:2px solid white;"></div>
+      </div>
+      <div style="margin-top:12px;padding:10px;border:1px solid #DDD8CE;font-size:12px;">
+        <strong>Restaurant Franzen</strong><br>
+        <span style="color:#6E6860;">Centrum · €€€ · 3 slots vrij</span><br>
+        <button class="mock-button" style="font-size:10px;margin-top:6px;">Reserveer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options" style="margin-top:24px;">
+  <div class="option" data-choice="approved" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content">
+      <h3>Pagina's en componenten kloppen</h3>
+    </div>
+  </div>
+  <div class="option" data-choice="changes" onclick="toggleSelect(this)">
+    <div class="letter">✎</div>
+    <div class="content">
+      <h3>Wil iets aanpassen</h3>
+    </div>
+  </div>
+</div>

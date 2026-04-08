@@ -1,0 +1,21 @@
+{"type":"server-started","port":63784,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:63784","screen_dir":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content","state_dir":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/state"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/vision.html"}
+{"source":"user-event","type":"click","text":"B\n    \n      Aggregator / Platform\n      Zo veel mogelijk restaurants in Amsterdam, automatisch scrapen of importeren. Denk: The Fork / OpenTable maar dan specifiek voor Amsterdam. Honderden restaurants, filters, zoeken op buurt/keuken/prijs.","choice":"b","id":null,"timestamp":1775677689604}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/availability-source.html"}
+{"source":"user-event","type":"click","text":"A\n    \n      Formitable API / Widget\n      Merlijne's schets gebruikt al Formitable widgets. Veel Amsterdamse restaurants zitten op Formitable. We scrapen of embedden hun beschikbaarheid. Voordeel: veel restaurants al beschikbaar. Nadeel: niet alle restaurants zitten op Formitable, en scraping kan breken.","choice":"a","id":null,"timestamp":1775677741155}
+{"source":"user-event","type":"click","text":"B\n    \n      Multi-platform aggregatie\n      Formitable + The Fork + eigen website scraping + Google Reserve. Combineer meerdere bronnen om maximale dekking te krijgen. Voordeel: breedste dekking. Nadeel: complexer, meer onderhoud, verschillende APIs/scraping.","choice":"b","id":null,"timestamp":1775677746176}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/architecture.html"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/restaurant-data.html"}
+{"source":"user-event","type":"click","text":"A\n    \n      JSON bestand in de repo\n      Een restaurants.json met alle data. Makkelijk te bewerken, geen database nodig. Nieuwe restaurants = PR maken. Pro: zero cost, simpel, versie-beheer via git. Con: handmatig bijwerken, geen admin panel, geen dynamische updates.","choice":"a","id":null,"timestamp":1775677827408}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/photos.html"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/features-mvp.html"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/design-direction.html"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/restaurant-onboarding.html"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/map-provider.html"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/approaches.html"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/design-architecture.html"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/design-database.html"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/design-pages.html"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/design-phases.html"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/design-dataflow.html"}
+{"type":"screen-added","file":"/Users/lennardvanmierlo/Desktop/table-me-amsterdam/.superpowers/brainstorm/53337-1775677607/content/waiting.html"}

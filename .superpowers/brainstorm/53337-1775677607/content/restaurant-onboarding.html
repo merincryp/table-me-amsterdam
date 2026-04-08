@@ -1,0 +1,26 @@
+<h2>Hoe komen restaurants in het systeem?</h2>
+<p class="subtitle">Je wilt richting honderden restaurants. Hoe vul je die database?</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Handmatig toevoegen</h3>
+      <p>Jullie voegen restaurants één voor één toe via een admin panel of direct in Supabase. <strong>Pro:</strong> volledige controle, kwaliteitsbewaking. <strong>Con:</strong> langzaam, veel werk.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Scrape Formitable restaurant-lijst</h3>
+      <p>Formitable heeft een publieke lijst van aangesloten restaurants in Amsterdam. Scrape die als startpunt, vul aan met Google Places data (adres, foto, keuken). <strong>Pro:</strong> snel honderden restaurants. <strong>Con:</strong> data cleanup nodig, scraping kan breken.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Google Places bulk import + Formitable match</h3>
+      <p>Haal alle restaurants in Amsterdam op via Google Places API, en match automatisch welke een Formitable widget hebben. <strong>Pro:</strong> breedste dekking, rijke data (ratings, openingstijden). <strong>Con:</strong> API kosten, veel data om te filteren.</p>
+    </div>
+  </div>
+</div>

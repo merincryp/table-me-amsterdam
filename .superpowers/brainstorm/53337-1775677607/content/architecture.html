@@ -1,0 +1,26 @@
+<h2>Welke architectuur past bij dit project?</h2>
+<p class="subtitle">Nu is het 1 groot index.html bestand (1.2MB). Dat schaalt niet naar honderden restaurants.</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Static site + API calls (huidige stijl)</h3>
+      <p>Houd het simpel: vanilla HTML/CSS/JS maar met echte API calls naar Formitable. Restaurants in een JSON bestand of kleine database. Geen framework, geen build step. <strong>Pro:</strong> simpel, snel, gratis hosting op Vercel. <strong>Con:</strong> wordt rommelig bij veel features.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Next.js (React) + Vercel</h3>
+      <p>Modern framework met server-side rendering, API routes voor Formitable proxy, en component-based UI. <strong>Pro:</strong> schaalt goed, SEO-friendly, API routes ingebouwd. <strong>Con:</strong> meer setup, React kennis nodig, meer complexity.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Vanilla frontend + Vercel Serverless backend</h3>
+      <p>Houd de frontend simpel (zoals nu) maar voeg Vercel serverless functions toe als backend. API keys veilig server-side, caching van beschikbaarheid, restaurant database als JSON/Supabase. <strong>Pro:</strong> best of both worlds — simpele frontend, krachtige backend. <strong>Con:</strong> twee werelden om te beheren.</p>
+    </div>
+  </div>
+</div>
